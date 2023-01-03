@@ -1,7 +1,7 @@
 import { useSortable } from "@dnd-kit/sortable"
 import {CSS} from "@dnd-kit/utilities"
 
-export function SortableItem({id, name, edit, setEdit}:any) {
+export function SortableItem({id, name, edit, setEdit, elemenmts, section, division}:any) {
 
     const handleClickEdit = (id:any) => {
         console.log("click",id)
@@ -21,13 +21,14 @@ export function SortableItem({id, name, edit, setEdit}:any) {
         transition
     }
 
-    return (
-        <div ref={setNodeRef} style={style} {...attributes} {...listeners}>
-            {/*card stammer with data*/}
-            <div className="drag">
-                <h3>{name}</h3>
-            <button onClick={() => handleClickEdit(id)}>{edit.id && edit.id === id ? "Guardar edicion": "Editar"}</button>
+        return (
+            <div ref={setNodeRef} style={style} {...attributes} {...listeners}>
+                {/*card stammer with data*/}
+                <div className="drag">
+                    <h3>{name}</h3>
+                <button onClick={() => handleClickEdit(id)}>{edit.id && edit.id === id ? "Guardar edicion": "Editar"}</button>
+                </div>
             </div>
-        </div>
-    )
+        )
+    
 }
