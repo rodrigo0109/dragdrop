@@ -23,79 +23,98 @@ interface AppState {
 function App() {
 
   const [edit, setEdit] = useState({id: ""})
-  //console.log(edit)
-  const [elements, setElements] = useState([
-    {
-      name:"Uno",
-      id:1,
-      position:0,
-      division:'Leadership'
-    },
-    {
-      name:"Dos",
-      id:2,
-      position:1,
-      division:'Silico'
-    },
-    {
-      name:"Tres",
-      id:3,
-      position:2,
-      division:'Silico'
-    },
-    {
-      name:"Cuatro",
-      id:4,
-      position:3,
-      division:'Leadership'
-    },
-    {
-      name:"Cinco",
-      id:5,
-      position:4,
-      division:'Chem'
-    },
-    {
-      name:"Seis",
-      id:6,
-      position:5,
-      division:'Chem'
-    },
-    {
-      name:"Siete",
-      id:7,
-      position:5,
-      division:'Chem'
-    },
-    {
-      name:"Ocho",
-      id:8,
-      position:5,
-      division:'Leadership'
-    },
-    {
-      name:"Nueve",
-      id:9,
-      position:5,
-      division:'Chem'
-    },
-    {
-      name:"Diez",
-      id:10,
-      position:5,
-      division:'Chem'
-    },
-    {
-      name:"Once",
-      id:11,
-      position:5,
-      division:'Silico'
-    },
-  ])
+  const [stammers, setStammers] = useState()
+  const obj = {
+    "Leadership":[
+      {
+        name:"Raul Sanchez",
+        id:1,
+        position:0,
+        division:'Leadership'
+      },
+      {
+        name:"Pablo Ruiz",
+        id:2,
+        position:0,
+        division:'Leadership'
+      },
+      {
+        name:"Martin Hess",
+        id:3,
+        position:0,
+        division:'Leadership'
+      }
+    ],
+    "Silico": [
+      {
+        name:"Mariana Ech",
+        id:4,
+        position:0,
+        division:'Silico'
+      },
+      {
+        name:"Vicky Fitz",
+        id:5,
+        position:0,
+        division:'Silico'
+      },
+      {
+        name:"Ale Paez",
+        id:6,
+        position:0,
+        division:'Silico'
+      }
+    ],
+    "Chem": [
+      {
+        name:"Sergio",
+        id:7,
+        position:0,
+        division:'Chem'
+      },
+      {
+        name:"Ernesto",
+        id:8,
+        position:0,
+        division:'Chem'
+      },
+      {
+        name:"Gustavo",
+        id:9,
+        position:0,
+        division:'Chem'
+      },
+      {
+        name:"Luis",
+        id:10,
+        position:0,
+        division:'Chem'
+      },
+      {
+        name:"Carlos",
+        id:11,
+        position:0,
+        division:'Chem'
+      },
+      {
+        name:"Esteban",
+        id:12,
+        position:0,
+        division:'Chem'
+      },
+    ]
+  }
+  const arraysOfStammers = Object.values(obj) //me quedo con los valores delas keys
+  const leadership = arraysOfStammers[0]
+  const silico = arraysOfStammers[1]
+  const chem = arraysOfStammers[2]
+  const join = leadership.concat(silico, chem) //union arrays
+
+  const [elements, setElements] = useState(join)
   //const leadership = elements.filter(e => e.division === "Leadership")
   //const silico = elements.filter(e => e.division === "Silico")
   //const chem = elements.filter(e => e.division === "Chem")
-  console.log("ELEMENTS",elements)
+  //console.log("ELEMENTS",elements)
   //Ordena bien, veer como cambiar posicion
   //boton funciona con dos clics
   const handleDragEnd = (event:any) => {
